@@ -1,0 +1,53 @@
+.login-div {
+    margin: 79px 0;
+    width: 100%;
+    display: inline-block;
+}
+
+.container {
+    position: relative;
+}
+
+mat-form-field {
+    display: block;
+    margin-top: 3%;
+}
+
+h2 {
+    text-align: center;
+    width: 100%;
+}
+
+.mat-card-header-text {
+    width: 100%;
+}
+
+.login-logo-container,
+.login-form {
+    display: flex;
+    justify-content: center;
+}
+
+.login-logo-container img {
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+}
+
+.login-form mat-card {
+    width: 100%;
+}
+
+.mat-card {
+    padding: 25px;
+}
+
+mat-card-actions button {
+    width: 100%;
+}
+
+.mat-raised-button {
+    background-color: #dc3545 !important;
+}

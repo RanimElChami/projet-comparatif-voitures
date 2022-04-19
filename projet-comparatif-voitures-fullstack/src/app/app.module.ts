@@ -6,6 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,10 @@ import { ReservationRecapComponent } from './reservation-recap/reservation-recap
 import { ReservationConfirmationComponent } from './reservation-confirmation/reservation-confirmation.component';
 import { AdvertisementsComponent } from './advertisements/advertisements.component';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatSelectModule} from '@angular/material/select';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -44,7 +50,13 @@ import { AdvertisementComponent } from './advertisement/advertisement.component'
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule,
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

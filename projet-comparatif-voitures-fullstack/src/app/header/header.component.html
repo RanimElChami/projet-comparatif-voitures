@@ -1,21 +1,9 @@
-<div class="container">
-    <div class="menu">
-        <div routerLink="/home" routerLinkActive="active-link" class="element">
-            Home
-        </div>
-        <div>
-            City picker
-        </div>
-        <div>
-            Date picker
-        </div>
-        <button routerLink="/advertisements" routerLinkActive="active-link" class="element">
-            Rechercher
-        </button>
-        <div routerLink="/login" routerLinkActive="active-link" class="element">
-            Login
-        </div>
-        <div routerLink="/register" routerLinkActive="active-link" class="element">
-            Register
-        </div>
-    </div>
+<mat-toolbar color="primary" class="navbar mat-elevation-z4">
+    <a routerLink="/" class="header-logo-link">
+        <img src="/assets/images/dauphine-rental-car-logo.png" alt="dauphine-rental-car-logo" class="header-logo">
+    </a>
+    <span class="header-span">DauphineCarRental</span>
+    <span class="example-spacer"></span>
+    <button mat-button routerLink="/login" routerLinkActive="active" class="navbar-btn btn-danger">Login</button>
+    <button mat-button routerLink="/register" routerLinkActive="active" class="navbar-btn btn-danger">Register</button>
+</mat-toolbar>

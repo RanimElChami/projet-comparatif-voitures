@@ -16,6 +16,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'adminhome',component:AdminHomeComponent},
+  {path:'advertisement',component:AdvertisementComponent},
   {path:'advertisement/:id',component:AdvertisementComponent},
   {path:'advertisements',component:AdvertisementsComponent},
   {path:'reservationrecap',component:ReservationRecapComponent},

@@ -1,1 +1,63 @@
-<p>home works!</p>
+<div class="p-5 text-center bg-image home-banner">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3">Welcome to Dauphine car rental website!</h1>
+                <a class="btn btn-outline-light btn-lg" href="#car-rental-form" role="button">Rent a car</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="car-rental-form" id="car-rental-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 py-5">
+                <div class="mb-2 flex-center">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Cities list</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let city of cities" [value]="city.value">
+                                {{city.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Choose start date</mat-label>
+                        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="startdatepicker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="startdatepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #startdatepicker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Choose end date</mat-label>
+                        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="enddatepicker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="enddatepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #enddatepicker></mat-datepicker>
+                    </mat-form-field>
+                    <button class="btn btn-danger" href="#car-rental-form" role="button">Rent a car</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="our-partners">
+    <div class="container">
+        <h2 class="mb-3">Our partners</h2>
+        <div class="row">
+            <div class="col-sm">
+                <img src="/assets/images/Alamo-logo.png" alt="Alamo-logo" class="Alamo-logo">
+            </div>
+            <div class="col-sm">
+                <img src="/assets/images/hertz.png" alt="hertz-logo" class="hertz-logo">
+            </div>
+            <div class="col-sm">
+                <img src="/assets/images/sixt.png" alt="sixt-logo" class="sixt-logo">
+            </div>
+            <div class="col-sm">
+                <img src="/assets/images/europcar.png" alt="europcar-logo" class="eruopcar-logo">
+            </div>
+        </div>
+    </div>
+</div>
