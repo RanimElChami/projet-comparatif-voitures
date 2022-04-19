@@ -13,7 +13,8 @@ export class RegisterComponent implements OnInit {
   login:any = "";
   password:any = "";
   dob:any = "";
-
+  email:any = "";
+  
   constructor(public authenticationService:AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {}
