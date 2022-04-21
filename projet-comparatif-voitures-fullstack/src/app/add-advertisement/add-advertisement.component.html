@@ -1,0 +1,52 @@
+<div class="login-div">
+    <div class="container">
+        <h2>Add New Advertisement</h2>
+        <mat-card>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Car brand</mat-label>
+                            <input matInput name="carBrand" type="text" placeholder="Car Brand" [(ngModel)]="carBrand" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Number of seats</mat-label>
+                            <input matInput name="numberOfSeats" type="number" placeholder="Number of seats" [(ngModel)]="numberOfSeats" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Number of doors</mat-label>
+                            <input matInput name="numberOfDoors" type="number" placeholder="Number of doors" [(ngModel)]="numberOfDoors" />
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Choose start date</mat-label>
+                            <input matInput [matDatepicker]="releaseDate">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="releaseDate"></mat-datepicker-toggle>
+                            <mat-datepicker #releaseDate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Mileage</mat-label>
+                            <input matInput name="mileage" type="number" placeholder="Mileage" [(ngModel)]="mileage" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Price per day</mat-label>
+                            <input matInput name="pricePerDay" type="number" placeholder="Price per day" [(ngModel)]="pricePerDay" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Transmission</mat-label>
+                            <mat-radio-group [(ngModel)]="transmission">
+                                <mat-radio-button class="example-margin" value="automatic">Automatic</mat-radio-button>
+                                <mat-radio-button class="example-margin" value="manual">Manual</mat-radio-button>
+                            </mat-radio-group>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="accent">Register</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

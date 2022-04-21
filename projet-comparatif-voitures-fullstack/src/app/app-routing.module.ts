@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReservationRecapComponent } from './reservation-recap/reservation-recap.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AddAdvertisementComponent } from './add-advertisement/add-advertisement.component';
+import { EditAdvertisementComponent } from './edit-advertisement/edit-advertisement.component';
 import { HomeComponent } from './home/home.component';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
 import { AdvertisementsComponent } from './advertisements/advertisements.component';
@@ -15,12 +17,14 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'adminhome',component:AdminHomeComponent},
+  {path:'adminHome',component:AdminHomeComponent},
+  {path:'addNewAdvertisement',component:AddAdvertisementComponent},
+  {path:'editAdvertisement',component:EditAdvertisementComponent},
   {path:'advertisement',component:AdvertisementComponent},
   {path:'advertisement/:id',component:AdvertisementComponent},
   {path:'advertisements',component:AdvertisementsComponent},
-  {path:'reservationrecap',component:ReservationRecapComponent},
-  {path:'reservationconf',component:ReservationConfirmationComponent}
+  {path:'reservationRecap',component:ReservationRecapComponent},
+  {path:'reservationConfirmation',component:ReservationConfirmationComponent}
 ];
 
 @NgModule({

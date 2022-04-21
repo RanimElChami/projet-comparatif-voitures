@@ -1,0 +1,17 @@
+.home-buttons {
+    float: left;
+    width: 100%;
+    padding: 112px 0;
+}
+
+.home-buttons button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 100px;
+}
+
+.btn-edit {
+    background: linear-gradient(90deg, rgba(20, 28, 87, 1) 0%, rgba(14, 26, 112, 1) 35%, rgba(48, 58, 126, 1) 100%);
+    color: #fff;
+}

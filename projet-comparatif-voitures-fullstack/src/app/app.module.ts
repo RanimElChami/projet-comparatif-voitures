@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button'
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { AddAdvertisementComponent } from './add-advertisement/add-advertisement.component';
+import { EditAdvertisementComponent } from './edit-advertisement/edit-advertisement.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     ReservationRecapComponent,
     ReservationConfirmationComponent,
     AdvertisementsComponent,
-    AdvertisementComponent
+    AdvertisementComponent,
+    AddAdvertisementComponent,
+    EditAdvertisementComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +62,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
