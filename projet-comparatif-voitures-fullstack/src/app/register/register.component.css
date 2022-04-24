@@ -1,7 +1,6 @@
-.login-div {
+.register-div {
     margin: 34.5px 0;
     width: 100%;
-    display: inline-block;
 }
 
 .container {
@@ -19,24 +18,6 @@ h2 {
 }
 
 .mat-card-header-text {
-    width: 100%;
-}
-
-.login-logo-container,
-.login-form {
-    display: flex;
-    justify-content: center;
-}
-
-.login-logo-container img {
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 35%;
-}
-
-.login-form mat-card {
     width: 100%;
 }
 

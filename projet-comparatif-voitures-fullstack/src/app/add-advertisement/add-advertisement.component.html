@@ -1,51 +1,84 @@
-<div class="login-div">
+<div class="add-advertisement-div">
     <div class="container">
         <h2>Add New Advertisement</h2>
         <mat-card>
             <mat-card-content>
                 <div class="row">
                     <div class="col">
-                        <mat-form-field>
+                        <mat-form-field appearance="fill">
                             <mat-label>Car brand</mat-label>
-                            <input matInput name="carBrand" type="text" placeholder="Car Brand" [(ngModel)]="carBrand" />
+                            <input matInput name="carBrand" type="text" placeholder="Car Brand" [(ngModel)]="brand" />
                         </mat-form-field>
-                        <mat-form-field>
+                        <mat-form-field class="example-margin example-width" appearance="fill">
                             <mat-label>Number of seats</mat-label>
-                            <input matInput name="numberOfSeats" type="number" placeholder="Number of seats" [(ngModel)]="numberOfSeats" />
+                            <input matInput type="number" [(ngModel)]="numberOfSeats">
                         </mat-form-field>
-                        <mat-form-field>
+                        <mat-form-field class="example-margin example-width" appearance="fill">
                             <mat-label>Number of doors</mat-label>
-                            <input matInput name="numberOfDoors" type="number" placeholder="Number of doors" [(ngModel)]="numberOfDoors" />
+                            <input matInput type="number" [(ngModel)]="numberOfDoors">
                         </mat-form-field>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Choose start date</mat-label>
-                            <input matInput [matDatepicker]="releaseDate">
-                            <mat-hint>MM/DD/YYYY</mat-hint>
-                            <mat-datepicker-toggle matSuffix [for]="releaseDate"></mat-datepicker-toggle>
-                            <mat-datepicker #releaseDate></mat-datepicker>
+                        <mat-form-field appearance="fill">
+                            <mat-label>City</mat-label>
+                            <mat-select [(ngModel)]="city" name="city">
+                                <mat-option *ngFor="let color of cities" [value]="city">
+                                    {{city}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div class="radio-btn-div">
+                            <mat-label>Transmission</mat-label>
+                            <mat-radio-group>
+                                <mat-radio-button [(ngModel)]="transmission" name="automatic" ngDefaultControl value="automatic">Automatic</mat-radio-button>
+                                <mat-radio-button [(ngModel)]="transmission" name="manual" ngDefaultControl value="manual">Manual</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Category</mat-label>
+                            <mat-select [(ngModel)]="category" name="category">
+                                <mat-option *ngFor="let category of categories" [value]="category">
+                                    {{category}}
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                     </div>
                     <div class="col">
-                        <mat-form-field>
+                        <mat-form-field class="example-margin example-width" appearance="fill">
                             <mat-label>Mileage</mat-label>
-                            <input matInput name="mileage" type="number" placeholder="Mileage" [(ngModel)]="mileage" />
+                            <input matInput type="number" [(ngModel)]="mileage">
                         </mat-form-field>
-                        <mat-form-field>
+                        <mat-form-field appearance="fill" floatLabel="always">
                             <mat-label>Price per day</mat-label>
-                            <input matInput name="pricePerDay" type="number" placeholder="Price per day" [(ngModel)]="pricePerDay" />
+                            <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="pricePerDay">
+                            <span matPrefix>$&nbsp;</span>
                         </mat-form-field>
-                        <mat-form-field>
-                            <mat-label>Transmission</mat-label>
-                            <mat-radio-group [(ngModel)]="transmission">
-                                <mat-radio-button class="example-margin" value="automatic">Automatic</mat-radio-button>
-                                <mat-radio-button class="example-margin" value="manual">Manual</mat-radio-button>
+                        <mat-form-field class="example-margin example-width" appearance="fill">
+                            <mat-label>Rating</mat-label>
+                            <input matInput type="number" [(ngModel)]="rating">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Car color</mat-label>
+                            <mat-select [(ngModel)]="color" name="color">
+                                <mat-option *ngFor="let color of colors" [value]="color">
+                                    {{color}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div class="radio-btn-div">
+                            <mat-label>Electric car?</mat-label>
+                            <mat-radio-group>
+                                <mat-radio-button [(ngModel)]="electric" ngDefaultControl value="true">True</mat-radio-button>
+                                <mat-radio-button [(ngModel)]="electric" ngDefaultControl value="false">False</mat-radio-button>
                             </mat-radio-group>
+                        </div>
+                        <mat-form-field class="example-margin example-width" appearance="fill">
+                            <mat-label>Available Quantity</mat-label>
+                            <input matInput type="number" [(ngModel)]="quantity">
                         </mat-form-field>
                     </div>
                 </div>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="accent">Register</button>
+                <button mat-raised-button color="accent">Submit</button>
             </mat-card-actions>
         </mat-card>
     </div>

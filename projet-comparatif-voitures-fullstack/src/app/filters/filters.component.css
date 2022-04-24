@@ -1,0 +1,29 @@
+.filters-div {
+    width: 100%;
+}
+
+.mat-card .mat-divider-horizontal {
+    position: relative;
+}
+
+h3 {
+    margin: 5px 0;
+}
+
+.filter-section {
+    padding: 2%;
+}
+
+mat-radio-button {
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+h4 {
+    margin: 2% 0;
+}
+
+h3,
+h4 {
+    font-weight: 500;
+}

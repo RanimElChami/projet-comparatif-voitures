@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
 import { AdvertisementsComponent } from './advertisements/advertisements.component';
 import { ReservationConfirmationComponent } from './reservation-confirmation/reservation-confirmation.component';
+import { FiltersComponent } from './filters/filters.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path:'advertisement/:id',component:AdvertisementComponent},
   {path:'advertisements',component:AdvertisementsComponent},
   {path:'reservationRecap',component:ReservationRecapComponent},
-  {path:'reservationConfirmation',component:ReservationConfirmationComponent}
+  {path:'reservationConfirmation',component:ReservationConfirmationComponent},
+  {path:'filters',component:FiltersComponent}
 ];
 
 @NgModule({

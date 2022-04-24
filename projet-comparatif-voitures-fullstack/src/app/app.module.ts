@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,6 +10,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button'
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +32,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AddAdvertisementComponent } from './add-advertisement/add-advertisement.component';
 import { EditAdvertisementComponent } from './edit-advertisement/edit-advertisement.component';
+import { FiltersComponent } from './filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { EditAdvertisementComponent } from './edit-advertisement/edit-advertisem
     AdvertisementsComponent,
     AdvertisementComponent,
     AddAdvertisementComponent,
-    EditAdvertisementComponent
+    EditAdvertisementComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,10 @@ import { EditAdvertisementComponent } from './edit-advertisement/edit-advertisem
     MatSelectModule,
     MatButtonModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

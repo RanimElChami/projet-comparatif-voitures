@@ -1,4 +1,4 @@
-<div class="login-div">
+<div class="register-div">
     <div class="container">
         <h2>Register</h2>
         <mat-card>
@@ -26,9 +26,12 @@
                             <mat-label>Last Name</mat-label>
                             <input matInput name="lastName" type="text" placeholder="Last name" [(ngModel)]="lastName" />
                         </mat-form-field>
-                        <mat-form-field>
-                            <mat-label>Password</mat-label>
-                            <input matInput name="password" type="password" placeholder="Password" [(ngModel)]="password" />
+                        <mat-form-field appearance="fill">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
                         </mat-form-field>
                     </div>
                 </div>

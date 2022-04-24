@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   password:any = "";
   dob:any = "";
   email:any = "";
+  hide=true;
   
   constructor(public authenticationService:AuthenticationService, private router: Router) { }
 

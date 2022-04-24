@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   email:any = "";
   password:any = "";
-
+  hide = true;
   constructor(public authenticationService:AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {}
