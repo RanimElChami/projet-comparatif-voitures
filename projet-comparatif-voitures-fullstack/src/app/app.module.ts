@@ -33,6 +33,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AddAdvertisementComponent } from './add-advertisement/add-advertisement.component';
 import { EditAdvertisementComponent } from './edit-advertisement/edit-advertisement.component';
 import { FiltersComponent } from './filters/filters.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -71,9 +73,10 @@ import { FiltersComponent } from './filters/filters.component';
     MatCheckboxModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

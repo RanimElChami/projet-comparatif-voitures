@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CarsService } from '../cars.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Car } from '../models/car';
 
 @Component({
   selector: 'app-advertisement',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./advertisement.component.css']
 })
 export class AdvertisementComponent implements OnInit {
+  id:any;
+  @Input() car:Car;
 
-  constructor() { }
+  constructor(private route:ActivatedRoute, private router: Router, public carsService:CarsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

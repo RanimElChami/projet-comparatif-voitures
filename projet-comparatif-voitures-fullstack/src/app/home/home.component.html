@@ -16,27 +16,27 @@
                 <div class="mb-2 flex-center">
                     <mat-form-field appearance="fill">
                         <mat-label>Cities list</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let city of cities" [value]="city.value">
-                                {{city.viewValue}}
+                        <mat-select [(value)]="city">
+                            <mat-option *ngFor="let city of cities" [value]="city">
+                                {{city}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Choose start date</mat-label>
-                        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="startdatepicker">
+                        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="startdatepicker" [formControl]="startingdate">
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matSuffix [for]="startdatepicker"></mat-datepicker-toggle>
                         <mat-datepicker #startdatepicker></mat-datepicker>
                     </mat-form-field>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Choose end date</mat-label>
-                        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="enddatepicker">
+                        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="enddatepicker" [formControl]="endingdate">
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matSuffix [for]="enddatepicker"></mat-datepicker-toggle>
                         <mat-datepicker #enddatepicker></mat-datepicker>
                     </mat-form-field>
-                    <button class="btn btn-danger" href="#car-rental-form" role="button">Rent a car</button>
+                    <button class="btn btn-danger" href="#car-rental-form" role="button" (click)="getdata()">Rent a car</button>
                 </div>
             </div>
         </div>

@@ -9,115 +9,55 @@
                     <mat-card class="example-card">
                         <div class="row">
                             <div class="col car-image">
-                                <img src="/assets/images/tesla_model_3.png" alt="Photo of a Shiba Inu">
+                                <img src="/assets/images/tesla_model_3.png" alt="Photo of car">
                             </div>
                             <div class="col-9 car-desc">
                                 <mat-card-content>
-                                    <h3>Tesla Sports</h3>
+                                    <h3>{{car.brand}}</h3>
                                     <div class="row">
                                         <div class="col">
                                             <div class="car-info">
                                                 <mat-icon aria-hidden="false" aria-label="Seats icon">airline_seat_recline_normal</mat-icon>
-                                                <p>4 seats</p>
+                                                <p>{{car.numberOfSeats}} seats</p>
                                             </div>
                                             <div class="car-info">
                                                 <mat-icon aria-hidden="false" aria-label="Transmission icon">construction</mat-icon>
-                                                <p>Manual</p>
+                                                <p>{{car.transmission}}</p>
                                             </div>
                                             <div class="car-info">
                                                 <mat-icon aria-hidden="false" aria-label="Transmission icon">star</mat-icon>
-                                                <p>Rating</p>
+                                                <p>{{car.rating}}</p>
                                             </div>
                                             <div class="car-info">
                                                 <mat-icon aria-hidden="false" aria-label="Doors icon">sensor_door</mat-icon>
-                                                <p>4 doors</p>
+                                                <p>{{car.numberOfDoors}} doors</p>
                                             </div>
 
                                         </div>
                                         <div class="col">
                                             <div class="car-info">
                                                 <mat-icon aria-hidden="false" aria-label="Color icon">palette</mat-icon>
-                                                <p>Red</p>
+                                                <p>{{car.color}}</p>
                                             </div>
                                             <div class="car-info">
                                                 <mat-icon aria-hidden="false" aria-label="Category icon">category</mat-icon>
-                                                <p>Small</p>
+                                                <p>{{car.category}}</p>
                                             </div>
                                             <div class="car-info">
                                                 <mat-icon aria-hidden="false" aria-label="Electric car icon">electric_car</mat-icon>
-                                                <p>Electric</p>
+                                                <p *ngIf="car.electric; else elseBlock">Electric</p>
+                                                <ng-template #elseBlock>Non Electric</ng-template>
                                             </div>
                                             <div class="car-info">
                                                 <mat-icon aria-hidden="false" aria-label="Speed icon">speed</mat-icon>
-                                                <p>Mileage</p>
+                                                <p>{{car.mileage}}</p>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <h4>Price for 1 day</h4>
                                             <div class="car-info">
                                                 <mat-icon aria-hidden="false" aria-label="Euro icon">euro</mat-icon>
-                                                <h2>20</h2>
-                                            </div>
-                                            <button mat-button routerLink="/login" routerLinkActive="active" class="navbar-btn btn-success">View deal</button>
-                                        </div>
-                                    </div>
-                                </mat-card-content>
-                            </div>
-                        </div>
-                    </mat-card>
-                </div>
-                <div class="row">
-                    <mat-card class="example-card">
-                        <div class="row">
-                            <div class="col car-image">
-                                <img src="/assets/images/lamborghini_blue.webp" alt="Photo of a Shiba Inu">
-                            </div>
-                            <div class="col-9 car-desc">
-                                <mat-card-content>
-                                    <h3>Lamborghini Huracan EVO</h3>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="car-info">
-                                                <mat-icon aria-hidden="false" aria-label="Seats icon">airline_seat_recline_normal</mat-icon>
-                                                <p>2 seats</p>
-                                            </div>
-                                            <div class="car-info">
-                                                <mat-icon aria-hidden="false" aria-label="Transmission icon">construction</mat-icon>
-                                                <p>Manual</p>
-                                            </div>
-                                            <div class="car-info">
-                                                <mat-icon aria-hidden="false" aria-label="Transmission icon">star</mat-icon>
-                                                <p>Rating</p>
-                                            </div>
-                                            <div class="car-info">
-                                                <mat-icon aria-hidden="false" aria-label="Doors icon">sensor_door</mat-icon>
-                                                <p>2 doors</p>
-                                            </div>
-
-                                        </div>
-                                        <div class="col">
-                                            <div class="car-info">
-                                                <mat-icon aria-hidden="false" aria-label="Color icon">palette</mat-icon>
-                                                <p>Blue</p>
-                                            </div>
-                                            <div class="car-info">
-                                                <mat-icon aria-hidden="false" aria-label="Category icon">category</mat-icon>
-                                                <p>Small</p>
-                                            </div>
-                                            <div class="car-info">
-                                                <mat-icon aria-hidden="false" aria-label="Electric car icon">electric_car</mat-icon>
-                                                <p>Electric</p>
-                                            </div>
-                                            <div class="car-info">
-                                                <mat-icon aria-hidden="false" aria-label="Speed icon">speed</mat-icon>
-                                                <p>Mileage</p>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <h4>Price for 1 day</h4>
-                                            <div class="car-info">
-                                                <mat-icon aria-hidden="false" aria-label="Euro icon">euro</mat-icon>
-                                                <h2>20</h2>
+                                                <h2>{{car.price}}</h2>
                                             </div>
                                             <button mat-button routerLink="/login" routerLinkActive="active" class="navbar-btn btn-success">View deal</button>
                                         </div>

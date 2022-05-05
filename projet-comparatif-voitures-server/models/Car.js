@@ -10,7 +10,8 @@ const carSchema = mongoose.Schema({
     category: { type: String, required: true },
     price: { type: Number, required: true },
     rating: { type: Number, required: true },
-    city: { type: String, required: true }
+    city: { type: String, required: true },
+    quantity: { type: Number, required: true }
 });
 
 module.exports = mongoose.model('Car', carSchema);

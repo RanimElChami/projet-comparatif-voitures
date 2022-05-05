@@ -1,47 +1,19 @@
-<mat-card class="new-note">
-    <mat-card-header>
-        <mat-card-title>New Advertisement</mat-card-title>
-        <mat-card-subtitle>Please fill all the fields</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <mat-form-field>
-            <mat-label>Car title</mat-label>
-            <input matInput type="text" [(ngModel)]="adTitle"/>
-            <button mat-button *ngIf="adTitle" matSuffix mat-icon-button aria-label="Clear">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-        <mat-form-field>
-            <textarea matInput [(ngModel)]="adKilometrage" placeholder=""></textarea>
-        </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions>
-        <button (click)="addad()"> Ajouter</button>
-    </mat-card-actions>
-</mat-card>
-<div class ="title">
-    title : {{adTitle}}
-    km : {{adKilometrage}}
-</div>
-<div class="advertisements">
+<!--<div class="advertisements">
     <div class="advertisements">
-        <div class = "advertisement" *ngFor="let ad of adtab">
-            <div class ="title">
-                {{ad.adTitle}}
-            </div>
-            <div class ="nbsiège">
-                {{ad.adNbSiege}}
-            </div>
-            <div class ="boitevitesse">
-                {{ad.adBoiteVitesse}}
-            </div>
-            <div class ="kilometrage">
-                {{ad.adKilometrage}}
-            </div>
-            <div class ="prix">
-                {{ad.adPrix}}
-            </div><!--RECUPERER NB JOURS ET LE MULTIPLIER PAR LE PRIX PAR JOUR
-                    OU AFFICHER PRIX PAR JOUR ET CALCULER APRES-->
+        <div class="advertisement" *ngFor="let ad of adtab">
+            <div class="title">{{ad.brand}}</div>
+            <div class="nbsiège">{{ad.mileage}}</div>
+            <div class="boitevitesse">{{ad.numberOfDoors}}</div>
+            <div class="kilometrage">{{ad.adKilometrage}}</div>
+            <div class="prix">{{ad.adPrix}}</div>
+        </div>
+    </div>
+</div>-->
+
+<div class="advertisements">
+    <div class="container">
+        <div class="notes">
+            <app-advertisement *ngFor="let car of cars" [car]="car"></app-advertisement>
         </div>
     </div>
 </div>

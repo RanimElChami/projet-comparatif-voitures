@@ -20,16 +20,16 @@
                         <mat-form-field appearance="fill">
                             <mat-label>City</mat-label>
                             <mat-select [(ngModel)]="city" name="city">
-                                <mat-option *ngFor="let color of cities" [value]="city">
+                                <mat-option *ngFor="let city of cities" [value]="city">
                                     {{city}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
                         <div class="radio-btn-div">
                             <mat-label>Transmission</mat-label>
-                            <mat-radio-group>
-                                <mat-radio-button [(ngModel)]="transmission" name="automatic" ngDefaultControl value="automatic">Automatic</mat-radio-button>
-                                <mat-radio-button [(ngModel)]="transmission" name="manual" ngDefaultControl value="manual">Manual</mat-radio-button>
+                            <mat-radio-group [(ngModel)]="transmission">
+                                <mat-radio-button name="automatic" ngDefaultControl value="automatic">Automatic</mat-radio-button>
+                                <mat-radio-button name="manual" ngDefaultControl value="manual">Manual</mat-radio-button>
                             </mat-radio-group>
                         </div>
                         <mat-form-field appearance="fill">
@@ -48,7 +48,7 @@
                         </mat-form-field>
                         <mat-form-field appearance="fill" floatLabel="always">
                             <mat-label>Price per day</mat-label>
-                            <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="pricePerDay">
+                            <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="price">
                             <span matPrefix>$&nbsp;</span>
                         </mat-form-field>
                         <mat-form-field class="example-margin example-width" appearance="fill">
@@ -65,9 +65,9 @@
                         </mat-form-field>
                         <div class="radio-btn-div">
                             <mat-label>Electric car?</mat-label>
-                            <mat-radio-group>
-                                <mat-radio-button [(ngModel)]="electric" ngDefaultControl value="true">True</mat-radio-button>
-                                <mat-radio-button [(ngModel)]="electric" ngDefaultControl value="false">False</mat-radio-button>
+                            <mat-radio-group [(ngModel)]="electric">
+                                <mat-radio-button ngDefaultControl value="true">True</mat-radio-button>
+                                <mat-radio-button ngDefaultControl value="false">False</mat-radio-button>
                             </mat-radio-group>
                         </div>
                         <mat-form-field class="example-margin example-width" appearance="fill">
@@ -78,7 +78,7 @@
                 </div>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="accent">Submit</button>
+                <button mat-raised-button color="accent" (click)="addAdvertisement()">Submit</button>
             </mat-card-actions>
         </mat-card>
     </div>
