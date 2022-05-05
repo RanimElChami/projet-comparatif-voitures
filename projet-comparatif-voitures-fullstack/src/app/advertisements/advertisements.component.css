@@ -1,0 +1,52 @@
+.advertisement-car {
+    float: left;
+    width: 100%;
+    margin: 50px 0;
+}
+
+.container {
+    position: relative;
+}
+
+.car-desc,
+.car-image {
+    display: flex;
+    justify-content: center;
+}
+
+.car-image img {
+    height: auto;
+    display: block;
+    width: 100%;
+}
+
+.car-desc {
+    margin: auto;
+}
+
+h3,
+h4 {
+    font-weight: 500;
+}
+
+.car-info {
+    float: left;
+    width: 100%;
+}
+
+mat-icon,
+.car-info p {
+    float: left;
+}
+
+mat-icon {
+    width: 20%;
+}
+
+.car-info p {
+    width: 80%;
+}
+
+.advertisement-block {
+    margin-bottom: 2%;
+}

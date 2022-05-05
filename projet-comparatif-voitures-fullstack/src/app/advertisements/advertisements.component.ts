@@ -24,6 +24,7 @@ export class AdvertisementsComponent implements OnInit {
     this.reservationData.cityObs.subscribe( city => this.city = city );
     let startdate = this.datepipe.transform(this.endingdate,'yyyy-MM-dd');
     let enddate = this.datepipe.transform(this.endingdate,'yyyy-MM-dd');
+
     this.carservice.getValidCars(this.city, startdate, enddate).subscribe(
       (cars:Array<Car>)=>{
         this.cars=cars;
