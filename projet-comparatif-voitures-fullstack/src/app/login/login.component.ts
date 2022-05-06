@@ -17,10 +17,8 @@ export class LoginComponent {
     this.authenticationService.login(this.email, this.password).subscribe(
       (userInfo:any)=>{
         this.authenticationService.connectedUser = userInfo;
-        console.log("login user", this.authenticationService.connectedUser);
         this.router.navigate(["/home"]);
       }
     )
   }
-
 }
