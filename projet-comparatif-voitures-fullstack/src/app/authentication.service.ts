@@ -17,7 +17,7 @@ export class AuthenticationService {
   }
   logout():Observable<any>{
     console.log('Logged out');
-    return this.http.get("http://localhost:3000/login", {withCredentials:true});
+    return this.http.get("http://localhost:3000/logout", {withCredentials:true});
   }
   register(email:any, password:any, firstName:any, lastName:any, dob:any):Observable<any>{
     return this.http.post("http://localhost:3000/register",{email:email, password:password, firstName:firstName,lastName:lastName,dob:dob},{withCredentials:true})
