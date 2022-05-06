@@ -14,7 +14,7 @@ h3 {
     padding: 2%;
 }
 
-mat-radio-button {
+.mat-checkbox {
     width: 100%;
     margin-bottom: 5%;
 }
@@ -26,4 +26,9 @@ h4 {
 h3,
 h4 {
     font-weight: 500;
+}
+
+.btn-filter {
+    width: 100%;
+    margin-top: 2%;
 }

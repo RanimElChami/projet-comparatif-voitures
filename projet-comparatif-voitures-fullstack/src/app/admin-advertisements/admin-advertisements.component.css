@@ -49,6 +49,8 @@ mat-icon {
 
 .advertisement-block {
     margin-bottom: 2%;
+    float: left;
+    width: 100%;
 }
 
 .mat-form-field {

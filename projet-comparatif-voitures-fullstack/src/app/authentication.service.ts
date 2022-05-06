@@ -7,17 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class AuthenticationService {
   connectedUser:any=null;
+  userType:any=null;
   constructor(private http:HttpClient) {
     this.isLogged();
   };
   
   login(email:any,password:any):Observable<any>{
-    console.log('in service')
-    return this.http.post("http://localhost:3000/login",{email:email, password:password}, {withCredentials:true});
+    return this.http.post("http://localhost:3000/login", {email:email, password:password}, {withCredentials:true});
   }
   logout():Observable<any>{
-    console.log('log out');
-    return this.http.get("http://localhost:3000/login",{withCredentials:true});
+    console.log('Logged out');
+    return this.http.get("http://localhost:3000/login", {withCredentials:true});
   }
   register(email:any, password:any, firstName:any, lastName:any, dob:any):Observable<any>{
     return this.http.post("http://localhost:3000/register",{email:email, password:password, firstName:firstName,lastName:lastName,dob:dob},{withCredentials:true})
@@ -27,11 +27,12 @@ export class AuthenticationService {
     this.http.get("http://localhost:3000/islogged",{withCredentials:true}).subscribe(
       (connectedUser)=>{
         this.connectedUser = connectedUser;
+        //this.userType = userType;
         console.log(this.connectedUser)
-        console.log("connected")
+        console.log("User connected")
       },
       (error)=>{
-        console.log("not connected")
+        console.log("User not connected")
       }
     )
   }

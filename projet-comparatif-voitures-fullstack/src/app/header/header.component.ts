@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -8,18 +9,16 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( private router: Router) {}
+  constructor(public authenticationService:AuthenticationService) {}
+  
   ngOnInit() {
   }
-  /**getProtectedData() {
-    this.user.getProtectedData().subscribe((data: any) => console.log(data));
-  }
-  logout() {
-    localStorage.removeItem('Token');
-    this.router.navigate(['/login']);
-  }
-  ngOnInit() {
-    this.getProtectedData();
-  }**/
 
+  logout(): void {
+    this.authenticationService.logout().subscribe(
+      ()=>{
+        window.location.reload();
+      }
+    )
+  }
 }

@@ -4,7 +4,9 @@
     </a>
     <span class="header-span">DauphineCarRental</span>
     <span class="example-spacer"></span>
-    <button mat-button routerLink="/login" routerLinkActive="active" class="navbar-btn btn-danger">Login</button>
-    <button mat-button routerLink="/register" routerLinkActive="active" class="navbar-btn btn-danger">Register</button>
-    <!--<button type="submit" (click)="logout()" mat-raised-button color="primary">Logout</button>-->
+    <button mat-button routerLink="/home" routerLinkActive="active" class="navbar-btn btn-danger">Home</button>
+    <button *ngIf="!authenticationService.connectedUser" mat-button routerLink="/login" routerLinkActive="active" class="navbar-btn btn-danger">Login</button>
+    <button *ngIf="!authenticationService.connectedUser" mat-button routerLink="/register" routerLinkActive="active" class="navbar-btn btn-danger">Register</button>
+    <button *ngIf="authenticationService.connectedUser" mat-button routerLinkActive="active" class="navbar-btn btn-danger" (click)="logout()">Logout</button>
+    <button *ngIf="authenticationService.connectedUser" mat-button routerLinkActive="active" class="navbar-btn btn-danger" routerLink="/adminHome">Admin Home</button>
 </mat-toolbar>

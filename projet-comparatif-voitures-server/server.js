@@ -191,6 +191,7 @@ app.post('/login', async(request, response) => {
         if (error) return response.status(401).json({ msg: "Error logging in" });
         if (!user) return response.status(401).json({ msg: "Wrong login" });
         request.session.userId = user._id;
+        request.session.userType = user.userType;
         request.session.save();
         response.status(200).json({ email: user.email, password: user.password });
     });
@@ -238,6 +239,7 @@ app.get('/isLogged', (request, response) => {
         if (error) return response.status(401).json({ msg: "Error, user not connected" });
         if (!user) return response.status(401).json({ msg: "Wrong login" });
         request.session.userId = user._id;
+        request.session.userType = user.userType;
         request.session.save();
         response.status(200).json({ email: user.email, firstName: user.firstName, lastName: user.lastName, dob: user.dob, password: user.password });
     })
@@ -253,17 +255,17 @@ app.get('/avalaiblecars/:city/:startingdate/:endingdate', (request, response) =>
     let ids = [];
     let carsvalid;
     Car.find({ quantity: { $gte: 1 }, city: cityparam }, (error, cars) => {
-        if (error) return console.error("error getting cars with quantity > 0", error);
+        if (error) return console.error("Error getting cars with quantity > 0", error);
         carqtysup0 = cars;
         Car.find({ quantity: { $lte: 0 }, city: cityparam }, (error, cars) => {
-            if (error) return console.error("error getting cars with quantity > 0", error);
+            if (error) return console.error("Error getting cars with quantity > 0", error);
             Reservation.find({
                 $or: [
                     { reservationStartDate: { $gt: endingdate } },
                     { reservationEndDate: { $lt: startingdate } }
                 ]
             }, (error, reservations) => {
-                if (error) return console.error("error get cars between dates", error);
+                if (error) return console.error("Error getting cars between dates", error);
                 let resa = reservations;
                 resa.forEach(function(reservation) {
                     ids.push(reservation.carId);
@@ -272,9 +274,8 @@ app.get('/avalaiblecars/:city/:startingdate/:endingdate', (request, response) =>
                 Car.find({
                     '_id': { $in: ids }
                 }, (error, cars) => {
-                    if (error) return console.log("error get cars from array of ids", error);
+                    if (error) return console.log("Error retrieving cars from array of ids", error);
                     carsvalid = cars;
-                    console.log("typeofoofofofofof", carsvalid);
                     carsvalid.forEach((car) => {
                         if (!carqtysup0.includes(car)) {
                             carqtysup0.concat(car);

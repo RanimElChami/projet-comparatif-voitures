@@ -14,9 +14,7 @@ export class LoginComponent {
   constructor(public authenticationService:AuthenticationService, private router: Router) { }
   
   submit(): any {
-    console.log('in submit');
-    console.log(this.email, this.password);
-    this.authenticationService.connectedUser.login(this.email, this.password).subscribe(
+    this.authenticationService.login(this.email, this.password).subscribe(
       (userInfo:any)=>{
         this.authenticationService.connectedUser = userInfo;
         console.log("login user", this.authenticationService.connectedUser);

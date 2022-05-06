@@ -5,24 +5,24 @@
             <mat-card-content>
                 <div class="row">
                     <div class="col">
-                        <mat-form-field>
+                        <mat-form-field appearance="fill">
                             <mat-label>First Name</mat-label>
                             <input matInput name="firstName" type="text" placeholder="First Name" [(ngModel)]="firstName" />
                         </mat-form-field>
-                        <mat-form-field>
+                        <mat-form-field appearance="fill">
                             <mat-label>Email</mat-label>
                             <input matInput name="email" type="email" placeholder="Email Address" [(ngModel)]="email" />
                         </mat-form-field>
                         <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Choose start date</mat-label>
-                            <input matInput [matDatepicker]="dobdatepicker">
+                            <mat-label>Choose date of birth</mat-label>
+                            <input matInput [matDatepicker]="dobdatepicker" [(ngModel)]="dob">
                             <mat-hint>MM/DD/YYYY</mat-hint>
                             <mat-datepicker-toggle matSuffix [for]="dobdatepicker"></mat-datepicker-toggle>
                             <mat-datepicker #dobdatepicker></mat-datepicker>
                         </mat-form-field>
                     </div>
                     <div class="col">
-                        <mat-form-field>
+                        <mat-form-field appearance="fill">
                             <mat-label>Last Name</mat-label>
                             <input matInput name="lastName" type="text" placeholder="Last name" [(ngModel)]="lastName" />
                         </mat-form-field>
@@ -37,7 +37,7 @@
                 </div>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="accent">Register</button>
+                <button mat-raised-button color="accent" (click)="submit()">Register</button>
             </mat-card-actions>
         </mat-card>
     </div>

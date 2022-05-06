@@ -6,50 +6,50 @@
             </div>
             <div class="col-9 car-desc">
                 <mat-card-content>
-                    <h3>{{car.brand}}</h3>
+                    <h3>{{filteredCar.brand}}</h3>
                     <div class="row">
                         <div class="col">
                             <div class="car-info">
                                 <mat-icon aria-hidden="false" aria-label="Seats icon">airline_seat_recline_normal</mat-icon>
-                                <p>{{car.numberOfSeats}} seats</p>
+                                <p>{{filteredCar.numberOfSeats}} seats</p>
                             </div>
                             <div class="car-info">
                                 <mat-icon aria-hidden="false" aria-label="Transmission icon">construction</mat-icon>
-                                <p>{{car.transmission}}</p>
+                                <p>{{filteredCar.transmission}}</p>
                             </div>
                             <div class="car-info">
                                 <mat-icon aria-hidden="false" aria-label="Transmission icon">star</mat-icon>
-                                <p>{{car.rating}}</p>
+                                <p>{{filteredCar.rating}}</p>
                             </div>
                             <div class="car-info">
                                 <mat-icon aria-hidden="false" aria-label="Doors icon">sensor_door</mat-icon>
-                                <p>{{car.numberOfDoors}} doors</p>
+                                <p>{{filteredCar.numberOfDoors}} doors</p>
                             </div>
                         </div>
                         <div class="col">
                             <div class="car-info">
                                 <mat-icon aria-hidden="false" aria-label="Color icon">palette</mat-icon>
-                                <p>{{car.color}}</p>
+                                <p>{{filteredCar.color}}</p>
                             </div>
                             <div class="car-info">
                                 <mat-icon aria-hidden="false" aria-label="Category icon">category</mat-icon>
-                                <p>{{car.category}}</p>
+                                <p>{{filteredCar.category}}</p>
                             </div>
                             <div class="car-info">
                                 <mat-icon aria-hidden="false" aria-label="Electric car icon">electric_car</mat-icon>
-                                <p *ngIf="car.electric; else elseBlock">Electric</p>
+                                <p *ngIf="filteredCar.electric; else elseBlock">Electric</p>
                                 <ng-template #elseBlock>Non Electric</ng-template>
                             </div>
                             <div class="car-info">
                                 <mat-icon aria-hidden="false" aria-label="Speed icon">speed</mat-icon>
-                                <p>{{car.mileage}}</p>
+                                <p>{{filteredCar.mileage}}</p>
                             </div>
                         </div>
                         <div class="col">
                             <h4>Price for 1 day</h4>
                             <div class="car-info">
                                 <mat-icon aria-hidden="false" aria-label="Euro icon">euro</mat-icon>
-                                <h2>{{car.price}}</h2>
+                                <h2>{{filteredCar.price}}</h2>
                             </div>
                             <mat-card-actions>
                                 <button class="btn btn-danger" mat-raised-button (click)="deleteAdvertisementEvent()">Delete</button>
@@ -70,19 +70,19 @@
                 <div class="col">
                     <mat-form-field appearance="fill">
                         <mat-label>Car brand</mat-label>
-                        <input matInput name="carBrand" type="text" placeholder="Car Brand" [(ngModel)]="car.brand" />
+                        <input matInput name="carBrand" type="text" placeholder="Car Brand" [(ngModel)]="filteredCar.brand" />
                     </mat-form-field>
                     <mat-form-field class="example-margin example-width" appearance="fill">
                         <mat-label>Number of seats</mat-label>
-                        <input matInput type="number" [(ngModel)]="car.numberOfSeats">
+                        <input matInput type="number" [(ngModel)]="filteredCar.numberOfSeats">
                     </mat-form-field>
                     <mat-form-field class="example-margin example-width" appearance="fill">
                         <mat-label>Number of doors</mat-label>
-                        <input matInput type="number" [(ngModel)]="car.numberOfDoors">
+                        <input matInput type="number" [(ngModel)]="filteredCar.numberOfDoors">
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>City</mat-label>
-                        <mat-select [(ngModel)]="car.city" name="city">
+                        <mat-select [(ngModel)]="filteredCar.city" name="city">
                             <mat-option *ngFor="let city of cities" [value]="city">
                                 {{city}}
                             </mat-option>
@@ -90,14 +90,14 @@
                     </mat-form-field>
                     <div class="radio-btn-div">
                         <mat-label>Transmission</mat-label>
-                        <mat-radio-group [(ngModel)]="car.transmission">
+                        <mat-radio-group [(ngModel)]="filteredCar.transmission">
                             <mat-radio-button name="automatic" ngDefaultControl value="Automatic">Automatic</mat-radio-button>
                             <mat-radio-button name="manual" ngDefaultControl value="Manual">Manual</mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <mat-form-field appearance="fill">
                         <mat-label>Category</mat-label>
-                        <mat-select [(ngModel)]="car.category" name="category">
+                        <mat-select [(ngModel)]="filteredCar.category" name="category">
                             <mat-option *ngFor="let category of categories" [value]="category">
                                 {{category}}
                             </mat-option>
@@ -107,20 +107,20 @@
                 <div class="col">
                     <mat-form-field class="example-margin example-width" appearance="fill">
                         <mat-label>Mileage</mat-label>
-                        <input matInput type="number" [(ngModel)]="car.mileage">
+                        <input matInput type="number" [(ngModel)]="filteredCar.mileage">
                     </mat-form-field>
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>Price per day</mat-label>
-                        <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="car.price">
+                        <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="filteredCar.price">
                         <span matPrefix>$&nbsp;</span>
                     </mat-form-field>
                     <mat-form-field class="example-margin example-width" appearance="fill">
                         <mat-label>Rating</mat-label>
-                        <input matInput type="number" [(ngModel)]="car.rating">
+                        <input matInput type="number" [(ngModel)]="filteredCar.rating">
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Car color</mat-label>
-                        <mat-select [(ngModel)]="car.color" name="color">
+                        <mat-select [(ngModel)]="filteredCar.color" name="color">
                             <mat-option *ngFor="let color of colors" [value]="color">
                                 {{color}}
                             </mat-option>
@@ -128,14 +128,14 @@
                     </mat-form-field>
                     <div class="radio-btn-div">
                         <mat-label>Electric car?</mat-label>
-                        <mat-radio-group [(ngModel)]="car.electric">
+                        <mat-radio-group [(ngModel)]="filteredCar.electric">
                             <mat-radio-button ngDefaultControl [value]="true">True</mat-radio-button>
                             <mat-radio-button ngDefaultControl [value]="false">False</mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <mat-form-field class="example-margin example-width" appearance="fill">
                         <mat-label>Available Quantity</mat-label>
-                        <input matInput type="number" [(ngModel)]="car.quantity">
+                        <input matInput type="number" [(ngModel)]="filteredCar.quantity">
                     </mat-form-field>
                 </div>
             </div>

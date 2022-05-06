@@ -32,13 +32,13 @@
     background-color: #f2f2f2;
 }
 
-.mat-form-field {
-    width: 29%;
-    margin-right: 1%;
+mat-form-field {
+    width: 100%;
 }
 
 .car-rental-form button {
-    width: 10%;
+    padding: 13px;
+    width: 100%;
 }
 
 

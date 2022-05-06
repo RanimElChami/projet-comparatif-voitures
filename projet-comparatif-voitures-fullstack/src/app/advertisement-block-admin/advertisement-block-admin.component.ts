@@ -8,7 +8,7 @@ import { Car } from '../models/car';
   styleUrls: ['./advertisement-block-admin.component.css']
 })
 export class AdvertisementBlockAdminComponent implements OnInit {
-  @Input() car:Car;
+  @Input() filteredCar:Car;
   @Output() deleteAdvertisement = new EventEmitter<Car>();
   advertisementStatus:string  = 'view';
   colors: string[] = ['Red', 'Blue', 'Gray', 'Yellow', 'Gray', 'Black'];
@@ -18,13 +18,13 @@ export class AdvertisementBlockAdminComponent implements OnInit {
   constructor(public carsService:CarsService) { }
 
   ngOnInit(): void {}
+  
   deleteAdvertisementEvent(): void {
-    console.log('in event')
-    this.deleteAdvertisement.emit(this.car);
+    this.deleteAdvertisement.emit(this.filteredCar);
   }
   updateAdvertisementEvent(): void {
     this.advertisementStatus = "loading";
-    this.carsService.updateAdvertisement(this.car).subscribe(
+    this.carsService.updateAdvertisement(this.filteredCar).subscribe(
       (car:Car)=>{
         this.advertisementStatus = "view";
       },

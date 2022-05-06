@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     lastName: { type: String, required: true },
     dob: { type: Date, required: true },
     password: { type: String, required: true },
-    userType: { type: String, required: true } // User or Administrator
+    userType: { type: String, required: true, default: 'user' } // User or Administrator
 });
 
 module.exports = mongoose.model('User', userSchema);

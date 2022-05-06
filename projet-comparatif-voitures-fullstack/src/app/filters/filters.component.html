@@ -1,56 +1,18 @@
-<!--<div class="filters-div">
+<div class="filters-div">
     <mat-card>
         <mat-card-content>
             <div class="row filter-section">
                 <h3>Filters</h3>
                 <mat-divider></mat-divider>
             </div>
-            <div class="row filter-section">
-                <h4>Price per day</h4>
-                <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" step="1000" min="0" max="100000" aria-label="units"></mat-slider>
-                <mat-divider></mat-divider>
+            <div flex="20" class="sidebar" layout-padding>
+                <div class="row filter-section" *ngFor="let filter of filters">
+                    <h4>{{filter.name}}</h4>
+                    <mat-checkbox *ngFor="let option of filter.value" [(ngModel)]="option[1]" ng-checked="option[1]">{{option[0]}}</mat-checkbox>
+                    <mat-divider></mat-divider>
+                </div>
             </div>
-            <div class="row filter-section">
-                <h4>Car color</h4>
-                <mat-form-field appearance="fill">
-                    <mat-label>Car color</mat-label>
-                    <mat-select [formControl]="colors" multiple>
-                        <mat-option *ngFor="let color of colorsList" [value]="color">{{color}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-divider></mat-divider>
-            </div>
-            <div class="row filter-section">
-                <h4>Transmission</h4>
-                <mat-radio-group>
-                    <mat-radio-button [(ngModel)]="transmission" name="automatic" ngDefaultControl value="automatic">Automatic</mat-radio-button>
-                    <mat-radio-button [(ngModel)]="transmission" name="manual" ngDefaultControl value="manual">Manual</mat-radio-button>
-                </mat-radio-group>
-                <mat-divider></mat-divider>
-            </div>
-            <div class="row filter-section">
-                <h4>Car category</h4>
-                <mat-radio-group>
-                    <mat-radio-button [(ngModel)]="category" ngDefaultControl value="Small">Small</mat-radio-button>
-                    <mat-radio-button [(ngModel)]="category" ngDefaultControl value="Medium">Medium</mat-radio-button>
-                    <mat-radio-button [(ngModel)]="category" ngDefaultControl value="Large">Large</mat-radio-button>
-                    <mat-radio-button [(ngModel)]="category" ngDefaultControl value="Estate">Estate</mat-radio-button>
-                    <mat-radio-button [(ngModel)]="category" ngDefaultControl value="Premium">Premium</mat-radio-button>
-                    <mat-radio-button [(ngModel)]="category" ngDefaultControl value="SUV">SUV</mat-radio-button>
-                </mat-radio-group>
-            </div>
+            <button class="btn btn-danger btn-filter" (click)="dynamicFiltering()" role="button">Filter</button>
         </mat-card-content>
     </mat-card>
-</div>-->
-
-<div class="filters-div">
-    <div flex="20" class="sidebar" layout-padding>
-        <div *ngFor="let filter of filters">
-            <h3 class="sort">{{filter.name}}</h3>
-            <li *ngFor="let option of filter.value">
-                <input type="checkbox" [(ngModel)]="option[1]" ng-checked="option[1]"> {{option[0]}}
-            </li>
-        </div>
-    </div>
-    <button class="btn btn-danger" (click)="dynamicFiltering()" role="button">Filter</button>
 </div>

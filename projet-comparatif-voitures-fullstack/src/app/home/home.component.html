@@ -12,32 +12,38 @@
 <div class="car-rental-form" id="car-rental-form">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 py-5">
-                <div class="mb-2 flex-center">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Cities list</mat-label>
-                        <mat-select [(value)]="city">
-                            <mat-option *ngFor="let city of cities" [value]="city">
-                                {{city}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Choose start date</mat-label>
-                        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="startdatepicker" [formControl]="startingdate">
-                        <mat-hint>MM/DD/YYYY</mat-hint>
-                        <mat-datepicker-toggle matSuffix [for]="startdatepicker"></mat-datepicker-toggle>
-                        <mat-datepicker #startdatepicker></mat-datepicker>
-                    </mat-form-field>
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Choose end date</mat-label>
-                        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="enddatepicker" [formControl]="endingdate">
-                        <mat-hint>MM/DD/YYYY</mat-hint>
-                        <mat-datepicker-toggle matSuffix [for]="enddatepicker"></mat-datepicker-toggle>
-                        <mat-datepicker #enddatepicker></mat-datepicker>
-                    </mat-form-field>
+            <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>Cities list</mat-label>
+                    <mat-select [(value)]="city">
+                        <mat-option *ngFor="let city of cities" [value]="city">
+                            {{city}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Choose start date</mat-label>
+                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="startdatepicker" [formControl]="startingdate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="startdatepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startdatepicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Choose end date</mat-label>
+                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="enddatepicker" [formControl]="endingdate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="enddatepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #enddatepicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-card-actions>
                     <button class="btn btn-danger btn-compare" href="#car-rental-form" role="button" (click)="getdata()">Compare rates</button>
-                </div>
+                </mat-card-actions>
             </div>
         </div>
     </div>

@@ -24,13 +24,11 @@ export class RegisterComponent implements OnInit {
     this.authenticationService.register (this.email, this.password, this.firstName, this.lastName, this.dob).subscribe(
       (userInfo:any) =>{
         this.authenticationService.connectedUser=userInfo;
+        this.router.navigate(["/login"]);
       },
       (error)=>{
         console.error("Error registering",error);
       }
     )
-    
   }
-
-
 }

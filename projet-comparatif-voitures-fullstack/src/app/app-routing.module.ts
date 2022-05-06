@@ -21,14 +21,13 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'adminHome',component:AdminHomeComponent},
   {path:'addNewAdvertisement',component:AddAdvertisementComponent},
-  {path:'editAdvertisement',component:AdvertisementBlockAdminComponent},
+  {path:'editAdvertisement',component:AdminAdvertisementsComponent},
   {path:'advertisement',component:AdvertisementComponent},
   {path:'advertisement/:id',component:AdvertisementComponent},
   {path:'advertisements',component:AdvertisementsComponent},
   {path:'reservationRecap',component:ReservationRecapComponent},
   {path:'reservationConfirmation',component:ReservationConfirmationComponent},
-  {path:'filters',component:FiltersComponent},
-  {path:'adminAdvertisements',component:AdminAdvertisementsComponent}
+  {path:'filters',component:FiltersComponent}
 ];
 
 @NgModule({
