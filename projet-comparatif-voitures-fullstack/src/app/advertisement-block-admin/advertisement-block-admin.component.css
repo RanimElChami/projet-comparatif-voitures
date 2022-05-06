@@ -1,0 +1,88 @@
+.advertisement-car {
+    float: left;
+    width: 100%;
+    margin: 50px 0;
+}
+
+.container {
+    position: relative;
+}
+
+.car-desc,
+.car-image {
+    display: flex;
+    justify-content: center;
+}
+
+.car-image img {
+    height: auto;
+    display: block;
+    width: 100%;
+}
+
+.car-desc {
+    margin: auto;
+}
+
+h3,
+h4 {
+    font-weight: 500;
+}
+
+.car-info {
+    float: left;
+    width: 100%;
+}
+
+mat-icon,
+.car-info p {
+    float: left;
+}
+
+mat-icon {
+    width: 20%;
+}
+
+.car-info p {
+    width: 80%;
+}
+
+.advertisement-block {
+    margin-bottom: 2%;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.add-advertisement-div {
+    margin: 34.5px 0;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+}
+
+mat-form-field,
+.radio-btn-div {
+    display: block;
+    margin-top: 3%;
+}
+
+h2 {
+    text-align: center;
+    width: 100%;
+}
+
+.radio-btn-div {
+    padding: 2.8% 0;
+}
+
+.radio-btn-div mat-label {
+    margin-right: 5%;
+}
+
+.mat-radio-button~.mat-radio-button {
+    margin-left: 16px;
+}

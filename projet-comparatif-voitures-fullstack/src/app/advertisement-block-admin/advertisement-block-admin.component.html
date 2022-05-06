@@ -1,0 +1,167 @@
+<div class="container">
+    <mat-card class="note" *ngIf="advertisementStatus==='view'">
+        <div class="row">
+            <div class="col car-image">
+                <img src="/assets/images/tesla_model_3.png" alt="Photo of car">
+            </div>
+            <div class="col-9 car-desc">
+                <mat-card-content>
+                    <h3>{{car.brand}}</h3>
+                    <div class="row">
+                        <div class="col">
+                            <div class="car-info">
+                                <mat-icon aria-hidden="false" aria-label="Seats icon">airline_seat_recline_normal</mat-icon>
+                                <p>{{car.numberOfSeats}} seats</p>
+                            </div>
+                            <div class="car-info">
+                                <mat-icon aria-hidden="false" aria-label="Transmission icon">construction</mat-icon>
+                                <p>{{car.transmission}}</p>
+                            </div>
+                            <div class="car-info">
+                                <mat-icon aria-hidden="false" aria-label="Transmission icon">star</mat-icon>
+                                <p>{{car.rating}}</p>
+                            </div>
+                            <div class="car-info">
+                                <mat-icon aria-hidden="false" aria-label="Doors icon">sensor_door</mat-icon>
+                                <p>{{car.numberOfDoors}} doors</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="car-info">
+                                <mat-icon aria-hidden="false" aria-label="Color icon">palette</mat-icon>
+                                <p>{{car.color}}</p>
+                            </div>
+                            <div class="car-info">
+                                <mat-icon aria-hidden="false" aria-label="Category icon">category</mat-icon>
+                                <p>{{car.category}}</p>
+                            </div>
+                            <div class="car-info">
+                                <mat-icon aria-hidden="false" aria-label="Electric car icon">electric_car</mat-icon>
+                                <p *ngIf="car.electric; else elseBlock">Electric</p>
+                                <ng-template #elseBlock>Non Electric</ng-template>
+                            </div>
+                            <div class="car-info">
+                                <mat-icon aria-hidden="false" aria-label="Speed icon">speed</mat-icon>
+                                <p>{{car.mileage}}</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h4>Price for 1 day</h4>
+                            <div class="car-info">
+                                <mat-icon aria-hidden="false" aria-label="Euro icon">euro</mat-icon>
+                                <h2>{{car.price}}</h2>
+                            </div>
+                            <mat-card-actions>
+                                <button class="btn btn-danger" mat-raised-button (click)="deleteAdvertisementEvent()">Delete</button>
+                                <button class="btn btn-success" (click)="advertisementStatus='edit'" mat-button>In-page edit</button>
+                            </mat-card-actions>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </div>
+        </div>
+    </mat-card>
+</div>
+
+<div class="container">
+    <mat-card class="note edit" *ngIf="advertisementStatus==='edit'">
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Car brand</mat-label>
+                        <input matInput name="carBrand" type="text" placeholder="Car Brand" [(ngModel)]="car.brand" />
+                    </mat-form-field>
+                    <mat-form-field class="example-margin example-width" appearance="fill">
+                        <mat-label>Number of seats</mat-label>
+                        <input matInput type="number" [(ngModel)]="car.numberOfSeats">
+                    </mat-form-field>
+                    <mat-form-field class="example-margin example-width" appearance="fill">
+                        <mat-label>Number of doors</mat-label>
+                        <input matInput type="number" [(ngModel)]="car.numberOfDoors">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>City</mat-label>
+                        <mat-select [(ngModel)]="car.city" name="city">
+                            <mat-option *ngFor="let city of cities" [value]="city">
+                                {{city}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="radio-btn-div">
+                        <mat-label>Transmission</mat-label>
+                        <mat-radio-group [(ngModel)]="car.transmission">
+                            <mat-radio-button name="automatic" ngDefaultControl value="Automatic">Automatic</mat-radio-button>
+                            <mat-radio-button name="manual" ngDefaultControl value="Manual">Manual</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Category</mat-label>
+                        <mat-select [(ngModel)]="car.category" name="category">
+                            <mat-option *ngFor="let category of categories" [value]="category">
+                                {{category}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field class="example-margin example-width" appearance="fill">
+                        <mat-label>Mileage</mat-label>
+                        <input matInput type="number" [(ngModel)]="car.mileage">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Price per day</mat-label>
+                        <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="car.price">
+                        <span matPrefix>$&nbsp;</span>
+                    </mat-form-field>
+                    <mat-form-field class="example-margin example-width" appearance="fill">
+                        <mat-label>Rating</mat-label>
+                        <input matInput type="number" [(ngModel)]="car.rating">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Car color</mat-label>
+                        <mat-select [(ngModel)]="car.color" name="color">
+                            <mat-option *ngFor="let color of colors" [value]="color">
+                                {{color}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="radio-btn-div">
+                        <mat-label>Electric car?</mat-label>
+                        <mat-radio-group [(ngModel)]="car.electric">
+                            <mat-radio-button ngDefaultControl [value]="true">True</mat-radio-button>
+                            <mat-radio-button ngDefaultControl [value]="false">False</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <mat-form-field class="example-margin example-width" appearance="fill">
+                        <mat-label>Available Quantity</mat-label>
+                        <input matInput type="number" [(ngModel)]="car.quantity">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="btn btn-danger" mat-raised-button (click)="deleteAdvertisementEvent()">Delete</button>
+            <button (click)="updateAdvertisementEvent()" mat-raised-button class="btn btn-success">Save</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="advertisement-error">
+    <div class="container">
+        <mat-card class="advertisement error" *ngIf="advertisementStatus==='error'" style="background-color: red; color: white;">
+            <mat-card-header>Edit error, please try again</mat-card-header>
+            <mat-card-actions>
+                <button class="ok" mat-raised-button color="warn" (click)="advertisementStatus='edit'">Ok</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+
+<div class="loading-advertisement">
+    <div class="container">
+        <mat-card class="note loading" *ngIf="advertisementStatus==='loading'">
+            <mat-card-header>Loading...</mat-card-header>
+        </mat-card>
+    </div>
+</div>

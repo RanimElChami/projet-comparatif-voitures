@@ -1,0 +1,14 @@
+<div class="advertisement-car">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <app-filters></app-filters>
+            </div>
+            <div class="col-9 cars-list">
+                <div class="row">
+                    <app-advertisement-block-admin class="advertisement-block" *ngFor="let car of cars" [car]="car" (deleteAdvertisement)="deleteAdvertisement($event)"></app-advertisement-block-admin>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

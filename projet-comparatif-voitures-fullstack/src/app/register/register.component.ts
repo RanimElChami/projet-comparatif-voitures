@@ -21,7 +21,15 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   submit(): void {
-    console.log("login");
+    this.authenticationService.register (this.email, this.password, this.firstName, this.lastName, this.dob).subscribe(
+      (userInfo:any) =>{
+        this.authenticationService.connectedUser=userInfo;
+      },
+      (error)=>{
+        console.error("Error registering",error);
+      }
+    )
+    
   }
 
 

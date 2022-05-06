@@ -10,10 +10,12 @@ import { Car } from '../models/car';
 })
 export class AdvertisementComponent implements OnInit {
   id:any;
-  @Input() car:Car;
-
+  //@Input() car:Car;
+  @Input() filteredCar:Car;
+  
   constructor(private route:ActivatedRoute, private router: Router, public carsService:CarsService) { }
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    console.log(this.filteredCar);
+  }
 }

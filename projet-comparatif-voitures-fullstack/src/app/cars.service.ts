@@ -18,12 +18,12 @@ export class CarsService {
     return this.http.get("http://localhost:3000/cars", {withCredentials: true});
   }
 
-  getCities():Observable<any>{
-    return this.http.get("http://localhost:3000/avalaibleCities");
-  }
-
   getAdvertisement(carId:any):Observable<any>{
     return this.http.get("http://localhost:3000/cars/"+carId);
+  }
+
+  getCities():Observable<any>{
+    return this.http.get("http://localhost:3000/avalaibleCities");
   }
 
   updateAdvertisement(car:Car):Observable<any>{

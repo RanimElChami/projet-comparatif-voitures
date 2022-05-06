@@ -1,4 +1,4 @@
-<div class="filters-div">
+<!--<div class="filters-div">
     <mat-card>
         <mat-card-content>
             <div class="row filter-section">
@@ -41,4 +41,16 @@
             </div>
         </mat-card-content>
     </mat-card>
+</div>-->
+
+<div class="filters-div">
+    <div flex="20" class="sidebar" layout-padding>
+        <div *ngFor="let filter of filters">
+            <h3 class="sort">{{filter.name}}</h3>
+            <li *ngFor="let option of filter.value">
+                <input type="checkbox" [(ngModel)]="option[1]" ng-checked="option[1]"> {{option[0]}}
+            </li>
+        </div>
+    </div>
+    <button class="btn btn-danger" (click)="dynamicFiltering()" role="button">Filter</button>
 </div>

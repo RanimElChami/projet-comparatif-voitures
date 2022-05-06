@@ -17,14 +17,14 @@ export class HomeComponent {
   endingdate = new FormControl(new Date());
   startingdate = new FormControl(new Date());
 
-  constructor(private reservationData:SharedDataService, private router:Router, private carservice:CarsService) {
+  constructor(private reservationData:SharedDataService, private router:Router, private carsService:CarsService) {
     // Set the minimum to the current day and December 31st a year of next year
     const currentYear = new Date().getFullYear();
     this.minDate = new Date();
     this.maxDate = new Date(currentYear + 1, 11, 31);
   }
   ngOnInit():void {
-    this.carservice.getCities().subscribe(
+    this.carsService.getCities().subscribe(
       (city:Array<String>)=>{
         this.cities = city;
       },

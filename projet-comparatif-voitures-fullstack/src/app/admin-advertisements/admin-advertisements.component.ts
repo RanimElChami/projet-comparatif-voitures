@@ -1,42 +1,50 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CarsService } from '../cars.service';
 import { Car } from '../models/car';
 import { SharedDataService } from '../shared-data.service';
-import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-advertisements',
-  templateUrl: './advertisements.component.html',
-  styleUrls: ['./advertisements.component.css']
+  selector: 'app-admin-advertisements',
+  templateUrl: './admin-advertisements.component.html',
+  styleUrls: ['./admin-advertisements.component.css']
 })
-export class AdvertisementsComponent implements OnInit {
+export class AdminAdvertisementsComponent implements OnInit {
   startingdate = new Date();
   endingdate = new Date();
   city = new String();
   cars:any;
-  filteredCarList:any;
 
-  constructor(private reservationData:SharedDataService, private carservice:CarsService, public datepipe: DatePipe) { }
+  constructor(private reservationData:SharedDataService, private carsService:CarsService, public datepipe: DatePipe) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.reservationData.startingdateObs.subscribe( date => this.startingdate = date );
     this.reservationData.endingdateObs.subscribe( date => this.endingdate = date );
     this.reservationData.cityObs.subscribe( city => this.city = city );
     let startdate = this.datepipe.transform(this.endingdate,'yyyy-MM-dd');
     let enddate = this.datepipe.transform(this.endingdate,'yyyy-MM-dd');
-    
-    this.carservice.getValidCars(this.city, startdate, enddate).subscribe(
+    this.getAdvertisements();
+  }
+
+  deleteAdvertisement(car:Car){
+    this.carsService.deleteAdvertisement(car._id).subscribe(
+      ()=>{
+        let index = this.cars.indexOf(car);
+        this.cars.splice(index,1);
+      },
+      (error: any)=>{
+        console.log("Delete error");
+      }
+    )
+  }
+  getAdvertisements(){
+    this.carsService.getAdvertisements().subscribe(
       (cars:Array<Car>)=>{
         this.cars=cars;
-        this.filteredCarList = cars;
       },
       (error)=>{
         console.log("Error", error);
       }
     );
-  }
-
-  filteredCars(cars:Array<Car>) {
-    this.filteredCarList = cars;
   }
 }

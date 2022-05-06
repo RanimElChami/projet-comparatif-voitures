@@ -34,23 +34,12 @@ app.use(bodyParser.json());
 app.use(cors({ credentials: true, origin: "http://localhost:4200" }));
 app.use(cookieParser());
 
-app.post('/users', (request, response) => {
-    let requestUser = request.body;
-    let newUser = new User({
-        email: requestUser.email,
-        firstName: requestUser.firstName,
-        lastName: requestUser.lastName,
-        dob: requestUser.dob,
-        password: requestUser.password,
-        userType: requestUser.userType,
-    });
-
-    newUser.save((error, user) => {
-        if (error) return console.error("error post", error);
-        console.log(user);
-        response.json(user);
-    });
-});
+app.use(session({
+    secret: "loginKey",
+    cookie: { maxAge: 24 * 60 * 60 * 1000, secure: false },
+    saveUninitialized: false,
+    resave: false
+}));
 
 app.post('/reservations', (request, response) => {
     let requestReservation = request.body;
@@ -141,7 +130,33 @@ app.put('/cars/:id', (request, response) => {
     });
 });
 
+// DELETE car
+app.delete('/cars/:id', (request, response) => {
+    Car.deleteOne({ _id: request.params.id }, (error) => {
+        if (error) return response.status(400).json({ error: error });
+        response.status(201).json({ msg: "Car deleted" });
+    });
+});
+
 // Users
+app.post('/users', (request, response) => {
+    let requestUser = request.body;
+    let newUser = new User({
+        email: requestUser.email,
+        firstName: requestUser.firstName,
+        lastName: requestUser.lastName,
+        dob: requestUser.dob,
+        password: requestUser.password,
+        userType: requestUser.userType,
+    });
+
+    newUser.save((error, user) => {
+        if (error) return console.error("error post", error);
+        console.log(user);
+        response.json(user);
+    });
+});
+
 app.get('/users/:id', (request, response) => {
     console.log(request.params.id);
     User.find({}).sort({ _id: -1 }).exec((error, users) => {
@@ -167,6 +182,65 @@ app.put('/users/:id', (request, response) => {
         if (error) return response.status(400).json({ error: error });
         response.status(201).json(user);
     });
+});
+
+// Authentification
+
+app.post('/login', async(request, response) => {
+    User.findOne({ email: request.body.email, password: request.body.password }, (error, user) => {
+        if (error) return response.status(401).json({ msg: "Error logging in" });
+        if (!user) return response.status(401).json({ msg: "Wrong login" });
+        request.session.userId = user._id;
+        request.session.save();
+        response.status(200).json({ email: user.email, password: user.password });
+    });
+});
+
+// Register
+app.post('/register', (request, response) => {
+    console.log("registering user");
+    let requestUser = request.body;
+    let newUser = new User({
+        email: requestUser.email,
+        firstName: requestUser.firstName,
+        lastName: requestUser.lastName,
+        dob: requestUser.dob,
+        password: requestUser.password,
+        userType: requestUser.userType
+    });
+    console.log(newUser.email);
+    User.countDocuments({ email: newUser.email }, function(error, count) {
+        if (error) return response.status(401).json({ msg: "Error" });
+        if (count > 0) {
+            return response.status(409).json({ msg: "This user already exists!" });
+        } else {
+            newUser.save((error, user) => {
+                if (error) return console.error(error);
+                request.session.userId = user._id;
+                request.session.save();
+                response.status(200).json({ email: user.email, firstName: user.firstName, lastName: user.lastName, dob: user.dob, password: user.password });
+            });
+        }
+    });
+});
+
+// Logout
+app.get('/logout', (request, response) => {
+    request.session.destroy(error => {
+        if (error) return response.status(409).json({ msg: "Error" });
+        return response.status(200).json({ msg: "Logout ok" });
+    });
+});
+
+app.get('/isLogged', (request, response) => {
+    if (!request.session.userId) return response.status(401).json("Not logged in");
+    User.findOne({ _id: request.session.userId }, (error, user) => {
+        if (error) return response.status(401).json({ msg: "Error, user not connected" });
+        if (!user) return response.status(401).json({ msg: "Wrong login" });
+        request.session.userId = user._id;
+        request.session.save();
+        response.status(200).json({ email: user.email, firstName: user.firstName, lastName: user.lastName, dob: user.dob, password: user.password });
+    })
 });
 
 // Reservations
@@ -200,7 +274,12 @@ app.get('/avalaiblecars/:city/:startingdate/:endingdate', (request, response) =>
                 }, (error, cars) => {
                     if (error) return console.log("error get cars from array of ids", error);
                     carsvalid = cars;
-                    Array.prototype.push.apply(carqtysup0, carsvalid);
+                    console.log("typeofoofofofofof", carsvalid);
+                    carsvalid.forEach((car) => {
+                        if (!carqtysup0.includes(car)) {
+                            carqtysup0.concat(car);
+                        }
+                    });
                     response.json(carqtysup0);
                 });
             }).select('carId');

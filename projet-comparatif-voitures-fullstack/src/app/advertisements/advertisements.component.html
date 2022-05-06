@@ -2,11 +2,13 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <app-filters></app-filters>
+                <div *ngIf="cars">
+                    <app-filters [cars]="cars" (newItem)="filteredCars($event)"></app-filters>
+                </div>
             </div>
             <div class="col-9 cars-list">
                 <div class="row">
-                    <app-advertisement class="advertisement-block" *ngFor="let car of cars" [car]="car"></app-advertisement>
+                    <app-advertisement class="advertisement-block" *ngFor="let filteredCar of filteredCarList" [filteredCar]="filteredCar"></app-advertisement>
                 </div>
             </div>
         </div>

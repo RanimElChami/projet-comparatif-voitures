@@ -21,7 +21,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { CarAdvertisementAdminComponent } from './car-advertisement-admin/car-advertisement-admin.component';
 import { ReservationRecapComponent } from './reservation-recap/reservation-recap.component';
 import { ReservationConfirmationComponent } from './reservation-confirmation/reservation-confirmation.component';
 import { AdvertisementsComponent } from './advertisements/advertisements.component';
@@ -31,10 +30,11 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AddAdvertisementComponent } from './add-advertisement/add-advertisement.component';
-import { EditAdvertisementComponent } from './edit-advertisement/edit-advertisement.component';
+import { AdvertisementBlockAdminComponent } from './advertisement-block-admin/advertisement-block-admin.component';
 import { FiltersComponent } from './filters/filters.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { AdminAdvertisementsComponent } from './admin-advertisements/admin-advertisements.component';
 
 @NgModule({
   declarations: [
@@ -45,14 +45,14 @@ import { DatePipe } from '@angular/common';
     LoginComponent,
     RegisterComponent,
     AdminHomeComponent,
-    CarAdvertisementAdminComponent,
     ReservationRecapComponent,
     ReservationConfirmationComponent,
     AdvertisementsComponent,
     AdvertisementComponent,
     AddAdvertisementComponent,
-    EditAdvertisementComponent,
-    FiltersComponent
+    AdvertisementBlockAdminComponent,
+    FiltersComponent,
+    AdminAdvertisementsComponent
   ],
   imports: [
     BrowserModule,

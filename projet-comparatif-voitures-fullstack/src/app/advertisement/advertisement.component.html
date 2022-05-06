@@ -5,50 +5,50 @@
         </div>
         <div class="col-9 car-desc">
             <mat-card-content>
-                <h3>{{car.brand}}</h3>
+                <h3>{{filteredCar.brand}}</h3>
                 <div class="row">
                     <div class="col">
                         <div class="car-info">
                             <mat-icon aria-hidden="false" aria-label="Seats icon">airline_seat_recline_normal</mat-icon>
-                            <p>{{car.numberOfSeats}} seats</p>
+                            <p>{{filteredCar.numberOfSeats}} seats</p>
                         </div>
                         <div class="car-info">
                             <mat-icon aria-hidden="false" aria-label="Transmission icon">construction</mat-icon>
-                            <p>{{car.transmission}}</p>
+                            <p>{{filteredCar.transmission}}</p>
                         </div>
                         <div class="car-info">
                             <mat-icon aria-hidden="false" aria-label="Transmission icon">star</mat-icon>
-                            <p>{{car.rating}}</p>
+                            <p>{{filteredCar.rating}}</p>
                         </div>
                         <div class="car-info">
                             <mat-icon aria-hidden="false" aria-label="Doors icon">sensor_door</mat-icon>
-                            <p>{{car.numberOfDoors}} doors</p>
+                            <p>{{filteredCar.numberOfDoors}} doors</p>
                         </div>
                     </div>
                     <div class="col">
                         <div class="car-info">
                             <mat-icon aria-hidden="false" aria-label="Color icon">palette</mat-icon>
-                            <p>{{car.color}}</p>
+                            <p>{{filteredCar.color}}</p>
                         </div>
                         <div class="car-info">
                             <mat-icon aria-hidden="false" aria-label="Category icon">category</mat-icon>
-                            <p>{{car.category}}</p>
+                            <p>{{filteredCar.category}}</p>
                         </div>
                         <div class="car-info">
                             <mat-icon aria-hidden="false" aria-label="Electric car icon">electric_car</mat-icon>
-                            <p *ngIf="car.electric; else elseBlock">Electric</p>
+                            <p *ngIf="filteredCar.electric; else elseBlock">Electric</p>
                             <ng-template #elseBlock>Non Electric</ng-template>
                         </div>
                         <div class="car-info">
                             <mat-icon aria-hidden="false" aria-label="Speed icon">speed</mat-icon>
-                            <p>{{car.mileage}}</p>
+                            <p>{{filteredCar.mileage}}</p>
                         </div>
                     </div>
                     <div class="col">
                         <h4>Price for 1 day</h4>
                         <div class="car-info">
                             <mat-icon aria-hidden="false" aria-label="Euro icon">euro</mat-icon>
-                            <h2>{{car.price}}</h2>
+                            <h2>{{filteredCar.price}}</h2>
                         </div>
                         <button mat-button routerLink="/login" routerLinkActive="active" class="navbar-btn btn-success">View deal</button>
                     </div>
